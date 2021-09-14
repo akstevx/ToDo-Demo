@@ -38,22 +38,16 @@ class TagAdapter(private val listOfTags: MutableList<ItemTag.Tag>, private val v
     class TagViewHolder(val view: View, val context:Context, val viewModel: ItemsViewModel) : GenericViewHolder<ItemTag.Tag>(view) {
         private val tagName : TextView = view.findViewById(R.id.txtItem)
         private val container : ConstraintLayout = view.findViewById(R.id.container)
-        var selectedItemPos = -1
-        var lastItemSelectedPos = -1
 
         override fun bind(tag: ItemTag.Tag) {
             tagName.text =  tag.tagName
             container.setOnClickListener {
                 tag.isSelected = !tag.isSelected
-//                selectedItemPos = adapterPosition
-//                if(lastItemSelectedPos == -1) lastItemSelectedPos = selectedItemPos
-//                else {
-//                    viewModel.tagListener.value = Pair(tag, lastItemSelectedPos)
-//                    lastItemSelectedPos = selectedItemPos
-//                }
-//                viewModel.tagListener.value = Pair(tag, selectedItemPos)
                 when(tag.isSelected){
-                    true -> selectedBg(container, tagName)
+                    true -> {
+                        viewModel.tagSelectedListener.value = tag
+                        selectedBg(container, tagName)
+                    }
                     else -> defaultBg(container, tagName)
                 }
             }

@@ -136,7 +136,7 @@ class ItemsFragment : BaseFragment(), SearchView.OnQueryTextListener {
     private fun searchQuery(query: String){
         val searchQuery = "%$query%"
         viewModel.searchDatabase(searchQuery).observe(viewLifecycleOwner){
-            viewModel.items.value = it
+            if(it.isNotEmpty()) viewModel.items.value = it else viewModel.fetchAllItems(lifecycle = this)
         }
     }
 
@@ -183,8 +183,8 @@ class ItemsFragment : BaseFragment(), SearchView.OnQueryTextListener {
         binding?.recyclerTags?.layoutManager = GridLayoutManager(requireContext(), tags.size)
         binding?.recyclerTags?.adapter = tagAdapter
 
-        viewModel.tagListener.observe(viewLifecycleOwner){
-//            binding?.recyclerTags?.adapter?.notifyItemChanged(it.second)
+        viewModel.tagSelectedListener.observe(viewLifecycleOwner){
+            searchQuery(it.tagName)
         }
     }
 }

@@ -129,8 +129,8 @@ class NewItemFragment : BaseFragment() {
         binding?.recyclerTags?.layoutManager = GridLayoutManager(requireContext(), tags.size)
         binding?.recyclerTags?.adapter = tagAdapter
 
-        viewModel.tagListener.observe(viewLifecycleOwner){
-            selectedTag = it.first.tagName
+        viewModel.tagSelectedListener.observe(viewLifecycleOwner){
+            selectedTag = it.tagName
         }
     }
 }

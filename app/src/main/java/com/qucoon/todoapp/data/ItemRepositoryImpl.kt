@@ -32,12 +32,11 @@ class ItemRepositoryImpl @Inject constructor(
     }
 
     override suspend fun updateData(toDoData: Item) {
-        appDatabase.itemDao().update(toDoData)
-//        appDatabase.itemDao().updateItem(toDoData)
+        appDatabase.itemDao().updateItem(toDoData)
     }
 
     override suspend fun deleteItem(toDoData: Item) {
-        appDatabase.itemDao().deleteItem(toDoData)
+        appDatabase.itemDao().deleteItem(toDoData.id)
     }
 
     override fun searchDatabase(searchQuery: String): LiveData<List<Item>> {

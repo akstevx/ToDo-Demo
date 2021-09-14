@@ -21,7 +21,7 @@ class ItemsViewModel @Inject constructor(
 ): ViewModel()  {
     val items = MutableLiveData<List<Item>>()
     val itemSelectedListener = SingleLiveEvent<Item>()
-    val tagListener = SingleLiveEvent<Pair<ItemTag.Tag, Int>>()
+    val tagSelectedListener = SingleLiveEvent<ItemTag.Tag>()
 
     fun searchDatabase(query: String) = searchItemUseCase.createObservable(params = SearchItemUseCase.Params(query))
 
