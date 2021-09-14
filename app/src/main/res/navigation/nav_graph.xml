@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.qucoon.todoapp.presentation.views.SplashFragment"
+        android:label=""
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/navigateToItemsFragment"
+            app:destination="@id/main_graph"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+
+    <navigation
+        android:id="@+id/main_graph"
+        app:startDestination="@id/itemsFragment">
+        <dialog
+            android:id="@+id/datePickerBottomSheet"
+            android:name="com.qucoon.todoapp.DatePickerBottomSheet"
+            android:label="fragment_confirm_dialog"
+            tools:layout="@layout/fragment_date_picker_bottom_sheet">
+
+            <argument
+                app:nullable="false"
+                android:name="dateFormat"
+                app:argType="string" />
+            <argument
+                app:nullable="false"
+                android:name="title"
+                app:argType="string" />
+            <argument
+                app:nullable="false"
+                android:name="date"
+                app:argType="long" />
+            <argument
+                app:nullable="false"
+                android:name="dateType"
+                app:argType="com.qucoon.todoapp.DateType" />
+        </dialog>
+
+        <action
+            android:id="@+id/navigateToDateBottomsheet"
+            app:destination="@id/datePickerBottomSheet"/>
+
+        <fragment
+            android:id="@+id/itemsFragment"
+            android:name="com.qucoon.todoapp.presentation.views.items.ItemsFragment"
+            android:label="ToDo"
+            tools:layout="@layout/fragment_items" >
+            <action
+                android:id="@+id/navigateToNewItemFragment"
+                app:destination="@id/newItemFragment"
+                app:enterAnim="@android:anim/slide_in_left"
+                app:exitAnim="@android:anim/slide_out_right" />
+            <action
+                android:id="@+id/navigateToViewItemFragment"
+                app:destination="@id/viewItemFragment"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
+        </fragment>
+        <fragment
+            android:id="@+id/newItemFragment"
+            android:name="com.qucoon.todoapp.presentation.views.items.NewItemFragment"
+            android:label="Create Item"
+            tools:layout="@layout/fragment_new_item" >
+        </fragment>
+        <fragment
+            android:id="@+id/viewItemFragment"
+            android:name="com.qucoon.todoapp.presentation.views.items.ViewItemFragment"
+            android:label="View Item"
+            tools:layout="@layout/fragment_view_item" >
+            <argument
+                app:nullable="false"
+                android:name="id"
+                app:argType="integer" />
+            <argument
+                app:nullable="false"
+                android:name="itemTitle"
+                app:argType="string" />
+            <argument
+                app:nullable="false"
+                android:name="itemDescription"
+                app:argType="string" />
+            <argument
+                app:nullable="false"
+                android:name="itemDate"
+                app:argType="string" />
+            <argument
+                app:nullable="false"
+                android:name="priority"
+                app:argType="com.qucoon.todoapp.domain.model.Priority" />
+            <argument
+                app:nullable="false"
+                android:name="tag"
+                app:argType="string" />
+            <action
+                android:id="@+id/navigateToEditItemFragment"
+                app:destination="@id/editItemFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/editItemFragment"
+            android:name="com.qucoon.todoapp.presentation.views.items.EditItemFragment"
+            android:label="Edit Item"
+            tools:layout="@layout/fragment_edit_item" >
+            <argument
+                app:nullable="false"
+                android:name="id"
+                app:argType="integer" />
+            <argument
+                app:nullable="false"
+                android:name="itemTitle"
+                app:argType="string" />
+            <argument
+                app:nullable="false"
+                android:name="itemDescription"
+                app:argType="string" />
+            <argument
+                app:nullable="false"
+                android:name="itemDate"
+                app:argType="string" />
+            <argument
+                app:nullable="false"
+                android:name="itemPriority"
+                app:argType="com.qucoon.todoapp.domain.model.Priority" />
+
+        </fragment>
+
+    </navigation>
+
+</navigation>

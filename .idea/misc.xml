@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable-xxhdpi/chart_back.xml" value="0.26875" />
+        <entry key="app/src/main/res/drawable/ic_search.xml" value="0.26875" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2526041666666667" />
+        <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.2526041666666667" />
+        <entry key="app/src/main/res/layout/fragment_date_picker_bottom_sheet.xml" value="0.2526041666666667" />
+        <entry key="app/src/main/res/layout/fragment_date_picker_bottom_sheet1.xml" value="0.2526041666666667" />
+        <entry key="app/src/main/res/layout/fragment_edit_item.xml" value="0.2526041666666667" />
+        <entry key="app/src/main/res/layout/fragment_items.xml" value="0.2526041666666667" />
+        <entry key="app/src/main/res/layout/fragment_new_item.xml" value="0.2526041666666667" />
+        <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_view_item.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/generic_dialog_box.xml" value="0.24724698190233715" />
+        <entry key="app/src/main/res/layout/item_layout.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_tag.xml" value="0.2526041666666667" />
+        <entry key="app/src/main/res/menu/list_fragment_menu.xml" value="0.2526041666666667" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
